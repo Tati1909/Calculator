@@ -1,10 +1,13 @@
 package com.example.calculator;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    CalculatorModel calculator;
     private static final char ADDITION = '+';
     private static final char SUBTRACTION = '-';
     private static final char MULTIPLICATION = '*';
@@ -41,6 +44,29 @@ public class MainActivity extends AppCompatActivity {
                 R.id.buttonSubtraction,
                 R.id.buttonEqual
         };
+
+        calculator = new CalculatorModel();
+
+        View.OnClickListener numberButtonClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculator.onNumPressed(view.getId());
+            }
+        };
+
+        View.OnClickListener actionButtonOnclickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculator.onActionPressed(view.getId());
+            }
+        };
+        for (int i = 0; i < numberIds.length; i++) {
+            findViewById(numberIds[i]).setOnClickListener(numberButtonClickListener);
+        }
+
+        for (int i = 0; i < actionsIds.length; i++) {
+            findViewById(actionsIds[i]).setOnClickListener(actionButtonOnclickListener);
+        }
 
     }
 }
