@@ -92,6 +92,10 @@ public class CalculatorModel {
         }
     }
 
+    public String getText() {
+        return inputStr.toString();
+    }
+
     private enum State {
         firstArgInput,
         operationSelected,

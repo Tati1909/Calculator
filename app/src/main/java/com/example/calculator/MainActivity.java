@@ -2,17 +2,15 @@ package com.example.calculator;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     CalculatorModel calculator;
-    private static final char ADDITION = '+';
-    private static final char SUBTRACTION = '-';
-    private static final char MULTIPLICATION = '*';
-    private static final char DIVISION = '/';
-    private char CURRENT_ACTION;
+
+    private TextView text; //поле для ввода расчетов
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +43,15 @@ public class MainActivity extends AppCompatActivity {
                 R.id.buttonEqual
         };
 
+        text = findViewById(R.id.text);
+
         calculator = new CalculatorModel();
 
         View.OnClickListener numberButtonClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calculator.onNumPressed(view.getId());
+                text.setText(calculator.getText());
             }
         };
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 calculator.onActionPressed(view.getId());
+                text.setText(calculator.getText());
             }
         };
         for (int i = 0; i < numberIds.length; i++) {
