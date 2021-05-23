@@ -33,12 +33,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:fontFamily="sans-serif"
-            android:inputType="number"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rectangle_button"
             android:gravity="right"
+            android:hint="0"
             android:padding="16dp"
-            android:text="1314234324"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
@@ -64,7 +63,7 @@
             <Button
                 android:id="@+id/buttonC"
                 style="@style/calc_button_sign"
-                android:text="x" />
+                android:text="C" />
 
             <Button
                 android:id="@+id/buttonPercent"

@@ -6,18 +6,15 @@ public class CalculatorModel {
 
     private StringBuilder inputStr = new StringBuilder();
 
-    private int actionSelected;
+    private int actionSelected;//какое действие выбрал пользователь
 
     private State state;
-
-    public CalculatorModel() {
-        state = State.firstArgInput;
-    }
 
     public void onNumPressed(int buttonId) {
 
         if (state == State.resultShow) {
-            state = State.firstArgInput;
+            state = State.firstArgInput; //если нам показывается результат, то переходим к
+            // вводу первого аргумента
             inputStr.setLength(0);
         }
 
@@ -65,6 +62,10 @@ public class CalculatorModel {
 
     }
 
+    public CalculatorModel() {
+        state = State.firstArgInput;
+    }
+
     public void onActionPressed(int actionId) {
         if (actionId == R.id.buttonEqual && state == State.secondArgInput && inputStr.length() > 0) {
             secondArg = Integer.parseInt(inputStr.toString());
@@ -84,16 +85,22 @@ public class CalculatorModel {
                     inputStr.append(firstArg / secondArg);
                     break;
             }
+        } else if (actionId == R.id.buttonAC && inputStr.length() > 0) {
+            inputStr.setLength(0);
 
-        } else if (inputStr.length() > 0 && state == State.firstArgInput) {
-            firstArg = Integer.parseInt(inputStr.toString());
-            state = State.operationSelected;
-            actionSelected = actionId;
+
+        } else if (actionId == R.id.buttonC && inputStr.length() > 0) {
+            inputStr.setLength(inputStr.length() - 1);
+
+
+        } else if (actionId == R.id.buttonPercent && inputStr.length() > 0) {
+            Double firstArgDouble = Double.parseDouble(inputStr.toString());
+            state = State.resultShow;
+            inputStr.setLength(0);//не забываем очищать поле
+            Double secondArgDouble = 100.0;
+            inputStr.append(firstArgDouble / secondArgDouble);
+
         }
-    }
-
-    public String getText() {
-        return inputStr.toString();
     }
 
     private enum State {
@@ -102,4 +109,9 @@ public class CalculatorModel {
         secondArgInput,
         resultShow
     }
+
+    public String getText() {
+        return inputStr.toString();
+    }
+
 }
