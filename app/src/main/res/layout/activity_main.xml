@@ -55,22 +55,22 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonAC"
+                android:id="@+id/button_AC"
                 style="@style/calc_button_sign"
                 android:text="AC" />
 
             <Button
-                android:id="@+id/buttonC"
+                android:id="@+id/button_C"
                 style="@style/calc_button_sign"
                 android:text="C" />
 
             <Button
-                android:id="@+id/buttonPercent"
+                android:id="@+id/button_percent"
                 style="@style/calc_button_sign"
                 android:text="%" />
 
             <Button
-                android:id="@+id/buttonDivision"
+                android:id="@+id/button_division"
                 style="@style/calc_button_sign"
                 android:text="/" />
 
@@ -83,22 +83,22 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonOne"
+                android:id="@+id/button_one"
                 style="@style/calc_button"
                 android:text="1" />
 
             <Button
-                android:id="@+id/buttonTwo"
+                android:id="@+id/button_two"
                 style="@style/calc_button"
                 android:text="2" />
 
             <Button
-                android:id="@+id/buttonThree"
+                android:id="@+id/button_three"
                 style="@style/calc_button"
                 android:text="3" />
 
             <Button
-                android:id="@+id/buttonMultiplication"
+                android:id="@+id/button_multiplication"
                 style="@style/calc_button_sign"
                 android:text="*" />
 
@@ -111,22 +111,22 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonFour"
+                android:id="@+id/button_four"
                 style="@style/calc_button"
                 android:text="4" />
 
             <Button
-                android:id="@+id/buttonFive"
+                android:id="@+id/button_five"
                 style="@style/calc_button"
                 android:text="5" />
 
             <Button
-                android:id="@+id/buttonSix"
+                android:id="@+id/button_six"
                 style="@style/calc_button"
                 android:text="6" />
 
             <Button
-                android:id="@+id/buttonSubtraction"
+                android:id="@+id/button_subtraction"
                 style="@style/calc_button_sign"
                 android:text="-" />
 
@@ -139,22 +139,22 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonSeven"
+                android:id="@+id/button_seven"
                 style="@style/calc_button"
                 android:text="7" />
 
             <Button
-                android:id="@+id/buttonEight"
+                android:id="@+id/button_eight"
                 style="@style/calc_button"
                 android:text="8" />
 
             <Button
-                android:id="@+id/buttonNine"
+                android:id="@+id/button_nine"
                 style="@style/calc_button"
                 android:text="9" />
 
             <Button
-                android:id="@+id/buttonAddition"
+                android:id="@+id/button_addition"
                 style="@style/calc_button_sign"
                 android:text="+" />
 
@@ -171,17 +171,17 @@
                 android:visibility="invisible" />
 
             <Button
-                android:id="@+id/buttonZero"
+                android:id="@+id/button_zero"
                 style="@style/calc_button"
                 android:text="0" />
 
             <Button
-                android:id="@+id/buttonDot"
+                android:id="@+id/button_dot"
                 style="@style/calc_button_sign"
                 android:text="." />
 
             <Button
-                android:id="@+id/buttonEqual"
+                android:id="@+id/button_equal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

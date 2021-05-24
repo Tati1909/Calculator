@@ -1,6 +1,8 @@
 package com.example.calculator;
 
-public class CalculatorModel {
+import java.io.Serializable;
+
+public class CalculatorModel implements Serializable {
     private int firstArg;
     private int secondArg;
 
@@ -15,36 +17,36 @@ public class CalculatorModel {
     }
 
     public void onActionPressed(int actionId) {
-        if (actionId == R.id.buttonEqual && state == State.secondArgInput && inputStr.length() > 0) {
+        if (actionId == R.id.button_equal && state == State.secondArgInput && inputStr.length() > 0) {
             secondArg = Integer.parseInt(inputStr.toString());
             state = State.resultShow;
             inputStr.setLength(0);
             switch (actionSelected) {
-                case R.id.buttonAddition:
+                case R.id.button_addition:
                     inputStr.append(firstArg + secondArg);
                     break;
-                case R.id.buttonSubtraction:
+                case R.id.button_subtraction:
                     inputStr.append(firstArg - secondArg);
                     break;
-                case R.id.buttonMultiplication:
+                case R.id.button_multiplication:
                     inputStr.append(firstArg * secondArg);
                     break;
-                case R.id.buttonDivision:
+                case R.id.button_division:
                     inputStr.append(firstArg / secondArg);
                     break;
             }
-        } else if (actionId == R.id.buttonAC && inputStr.length() > 0) {
+        } else if (actionId == R.id.button_AC && inputStr.length() > 0) {
             inputStr.setLength(0);
-        } else if (actionId == R.id.buttonC && inputStr.length() > 0) {
+        } else if (actionId == R.id.button_C && inputStr.length() > 0) {
             inputStr.setLength(inputStr.length() - 1);
-        } else if (actionId == R.id.buttonPercent && inputStr.length() > 0) {
+        } else if (actionId == R.id.button_percent && inputStr.length() > 0) {
             Double firstArgDouble = Double.parseDouble(inputStr.toString());
             state = State.resultShow;
             inputStr.setLength(0);//не забываем очищать поле
             Double secondArgDouble = 100.0;
             inputStr.append(firstArgDouble / secondArgDouble);
         } else if (inputStr.length() > 0 && state == State.firstArgInput &&
-                actionId != R.id.buttonAC && actionId != R.id.buttonC) {
+                actionId != R.id.button_AC && actionId != R.id.button_C) {
             firstArg = Integer.parseInt(inputStr.toString());
             state = State.operationSelected;
             actionSelected = actionId;
@@ -66,36 +68,36 @@ public class CalculatorModel {
 
         if (inputStr.length() < 9) {
             switch (buttonId) {
-                case R.id.buttonZero:
+                case R.id.button_zero:
                     if (inputStr.length() != 0) {
                         inputStr.append("0");
                     }
                     break;
-                case R.id.buttonOne:
+                case R.id.button_one:
                     inputStr.append("1");
                     break;
-                case R.id.buttonTwo:
+                case R.id.button_two:
                     inputStr.append("2");
                     break;
-                case R.id.buttonThree:
+                case R.id.button_three:
                     inputStr.append("3");
                     break;
-                case R.id.buttonFour:
+                case R.id.button_four:
                     inputStr.append("4");
                     break;
-                case R.id.buttonFive:
+                case R.id.button_five:
                     inputStr.append("5");
                     break;
-                case R.id.buttonSix:
+                case R.id.button_six:
                     inputStr.append("6");
                     break;
-                case R.id.buttonSeven:
+                case R.id.button_seven:
                     inputStr.append("7");
                     break;
-                case R.id.buttonEight:
+                case R.id.button_eight:
                     inputStr.append("8");
                     break;
-                case R.id.buttonNine:
+                case R.id.button_nine:
                     inputStr.append("9");
                     break;
             }
@@ -128,20 +130,20 @@ public class CalculatorModel {
                 return inputStr.toString();
         }
     }
-    
+
     private char getOperationChar() {
         switch (actionSelected) {
-            case R.id.buttonPercent:
+            case R.id.button_percent:
                 return '%';
-            case R.id.buttonDot:
+            case R.id.button_dot:
                 return '.';
-            case R.id.buttonAddition:
+            case R.id.button_addition:
                 return '+';
-            case R.id.buttonSubtraction:
+            case R.id.button_subtraction:
                 return '-';
-            case R.id.buttonMultiplication:
+            case R.id.button_multiplication:
                 return '*';
-            case R.id.buttonDivision:
+            case R.id.button_division:
             default:
                 return '/';
         }
