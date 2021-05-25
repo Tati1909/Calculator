@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle instanceState) {
         super.onSaveInstanceState(instanceState);
-        instanceState.putSerializable(keyCalculator, calculator);
+        instanceState.putParcelable(keyCalculator, calculator);
     }
 
     //восстановление данных
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
         super.onRestoreInstanceState(instanceState);
-        calculator = (CalculatorModel) instanceState.getSerializable(keyCalculator);
+        calculator = (CalculatorModel) instanceState.getParcelable(keyCalculator);
         text.setText(calculator.getText());
     }
 }
