@@ -1,8 +1,9 @@
 package com.example.calculator;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class CalculatorModel implements Serializable {
+public class CalculatorModel implements Parcelable {
     private int firstArg;
     private int secondArg;
 
@@ -14,6 +15,24 @@ public class CalculatorModel implements Serializable {
 
     public CalculatorModel() {
         state = State.firstArgInput;
+    }
+
+    public static final Creator<CalculatorModel> CREATOR = new Creator<CalculatorModel>() {
+        @Override
+        public CalculatorModel createFromParcel(Parcel in) {
+            return new CalculatorModel(in);
+        }
+
+        @Override
+        public CalculatorModel[] newArray(int size) {
+            return new CalculatorModel[size];
+        }
+    };
+
+    protected CalculatorModel(Parcel in) {
+        firstArg = in.readInt();
+        secondArg = in.readInt();
+        actionSelected = in.readInt();
     }
 
     public void onActionPressed(int actionId) {
@@ -147,6 +166,18 @@ public class CalculatorModel implements Serializable {
             default:
                 return '/';
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(firstArg);
+        dest.writeInt(secondArg);
+        dest.writeInt(actionSelected);
     }
 
     private enum State {
