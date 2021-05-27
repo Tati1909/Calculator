@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
 
-    <style name="my_style_calc_button_numeral" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="my_style_calc_button_numeral" parent="Theme.MaterialComponents.Light">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
@@ -12,13 +12,30 @@
 
     </style>
 
-    <style name="my_style_calc_button_sign" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="my_style_calc_button_sign" parent="Theme.MaterialComponents.Light">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:textColor">#FF5722</item>
         <item name="android:backgroundTint">#01ffaaaa</item>
+
+    </style>
+
+    <style name="AppThemeLight" parent="Theme.MaterialComponents.Light">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:textColor">#FF5722</item>
+        <item name="android:backgroundTint">#01ffaaaa</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">#ff6090</item>
+
+    </style>
+
+    <style name="AppThemeDark" parent="Theme.MaterialComponents.DayNight">
 
     </style>
 

@@ -21,4 +21,11 @@
     <string name="_0">0</string>
     <string name="dot">,</string>
     <string name="equal">=</string>
+
+    <string name="my_style_calc_button_numeral">My style numeral</string>
+    <string name="my_style_calc_button_sign">My style sign</string>
+    <string name="material_light">Material light</string>
+    <string name="material_dark">Material dark</string>
+
+
 </resources>
