@@ -9,14 +9,13 @@
     tools:context=".MainActivity">
 
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="right"
-        android:paddingLeft="8dp"
+        android:gravity="end"
+        android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="8dp"
         android:textColor="@color/white"
         android:textSize="25sp" />
@@ -27,15 +26,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
             android:background="@drawable/rectangle_button"
-            android:gravity="right"
-            android:hint="0"
+            android:gravity="end"
+            android:hint="@string/hint_0"
             android:padding="16dp"
             android:textColor="@color/white"
             android:textSize="30sp" />
@@ -45,7 +43,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/text"
         android:orientation="vertical">
 
         <LinearLayout
@@ -54,25 +51,25 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_AC"
-                style="@style/calc_button_sign"
-                android:text="AC" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/ac" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_C"
-                style="@style/calc_button_sign"
-                android:text="C" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/c" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_percent"
-                style="@style/calc_button_sign"
-                android:text="%" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/percent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_division"
-                style="@style/calc_button_sign"
-                android:text="/" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/division" />
 
         </LinearLayout>
 
@@ -82,25 +79,25 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_one"
-                style="@style/calc_button"
-                android:text="1" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_1" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_two"
-                style="@style/calc_button"
-                android:text="2" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_2" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_three"
-                style="@style/calc_button"
-                android:text="3" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_3" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_multiplication"
-                style="@style/calc_button_sign"
-                android:text="*" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/multiplication" />
 
         </LinearLayout>
 
@@ -110,25 +107,25 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_four"
-                style="@style/calc_button"
-                android:text="4" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_4" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_five"
-                style="@style/calc_button"
-                android:text="5" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_5" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_six"
-                style="@style/calc_button"
-                android:text="6" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_6" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_subtraction"
-                style="@style/calc_button_sign"
-                android:text="-" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/subtraction" />
 
         </LinearLayout>
 
@@ -138,25 +135,25 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_seven"
-                style="@style/calc_button"
-                android:text="7" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_7" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_eight"
-                style="@style/calc_button"
-                android:text="8" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_8" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_nine"
-                style="@style/calc_button"
-                android:text="9" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_9" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_addition"
-                style="@style/calc_button_sign"
-                android:text="+" />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/addition" />
 
         </LinearLayout>
 
@@ -166,30 +163,31 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
-                style="@style/calc_button"
+            <com.google.android.material.button.MaterialButton
+                style="@style/my_style_calc_button_numeral"
                 android:visibility="invisible" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_zero"
-                style="@style/calc_button"
-                android:text="0" />
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/_0" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_dot"
-                style="@style/calc_button_sign"
-                android:text="." />
+                style="@style/my_style_calc_button_sign"
+                android:text="@string/dot" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_equal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_button"
                 android:backgroundTint="#00ffaaaa"
-                android:text="="
+                android:text="@string/equal"
                 android:textColor="#FF5722"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                tools:ignore="NestedWeights" />
 
         </LinearLayout>
 

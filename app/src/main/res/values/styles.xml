@@ -2,21 +2,21 @@
 
     <!-- Base application theme. -->
 
-    <style name="calc_button">
+    <style name="my_style_calc_button_numeral" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">23sp</item>
+        <item name="android:textSize">@dimen/textSize</item>
         <item name="android:textColor">#000000</item>
         <item name="android:backgroundTint">#01ffaaaa</item>
 
     </style>
 
-    <style name="calc_button_sign">
+    <style name="my_style_calc_button_sign" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">23sp</item>
+        <item name="android:textSize">@dimen/textSize</item>
         <item name="android:textColor">#FF5722</item>
         <item name="android:backgroundTint">#01ffaaaa</item>
 
