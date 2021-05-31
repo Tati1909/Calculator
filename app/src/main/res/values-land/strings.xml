@@ -27,4 +27,6 @@
     <string name="my_style_calc_button_sign">My style sign</string>
     <string name="material_light">Material light</string>
     <string name="material_dark">Material dark</string>
+    <string name="choice_of_theme">choice_of_theme</string>
+    <string name="theme">light/dark</string>
 </resources>

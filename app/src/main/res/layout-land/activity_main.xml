@@ -129,8 +129,10 @@
                 android:text="+" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/my_style_calc_button_sign"
-                android:visibility="invisible" />
+                android:id="@+id/button_choice_of_theme"
+                style="@style/my_style_calc_button_numeral"
+                android:text="@string/theme"
+                android:textSize="@dimen/textSizeTheme" />
 
 
         </LinearLayout>
