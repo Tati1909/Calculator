@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
 
-    <style name="my_style_calc_button_numeral">
+    <style name="my_style_calc_button_numeral" parent="Theme.MaterialComponents.Light">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
@@ -21,7 +21,7 @@
 
     </style>
 
-    <style name="AppThemeDark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="AppThemeDark" parent="Theme.MaterialComponents">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
