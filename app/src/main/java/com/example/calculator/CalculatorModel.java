@@ -7,14 +7,14 @@ public class CalculatorModel implements Parcelable {
     private int firstArg;
     private int secondArg;
 
-    private StringBuilder inputStr = new StringBuilder();
+    private final StringBuilder INPUT_STR = new StringBuilder();
 
     private int actionSelected;//какое действие выбрал пользователь
 
     private State state;
 
     public CalculatorModel() {
-        state = State.firstArgInput;
+        state = State.FIRST_ARG_INPUT;
     }
 
     public static final Creator<CalculatorModel> CREATOR = new Creator<CalculatorModel>() {
@@ -36,88 +36,86 @@ public class CalculatorModel implements Parcelable {
     }
 
     public void onActionPressed(int actionId) {
-        if (actionId == R.id.button_equal && state == State.secondArgInput && inputStr.length() > 0) {
-            secondArg = Integer.parseInt(inputStr.toString());
-            state = State.resultShow;
-            inputStr.setLength(0);
+        if (actionId == R.id.button_equal && state == State.SECOND_ARG_INPUT && INPUT_STR.length() > 0) {
+            secondArg = Integer.parseInt(INPUT_STR.toString());
+            state = State.RESULT_SHOW;
+            INPUT_STR.setLength(0);
             switch (actionSelected) {
                 case R.id.button_addition:
-                    inputStr.append(firstArg + secondArg);
+                    INPUT_STR.append(firstArg + secondArg);
                     break;
                 case R.id.button_subtraction:
-                    inputStr.append(firstArg - secondArg);
+                    INPUT_STR.append(firstArg - secondArg);
                     break;
                 case R.id.button_multiplication:
-                    inputStr.append(firstArg * secondArg);
+                    INPUT_STR.append(firstArg * secondArg);
                     break;
                 case R.id.button_division:
-                    inputStr.append(firstArg / secondArg);
+                    INPUT_STR.append(firstArg / secondArg);
                     break;
             }
-        } else if (actionId == R.id.button_AC && inputStr.length() > 0) {
-            inputStr.setLength(0);
-        } else if (actionId == R.id.button_C && inputStr.length() > 0) {
-            inputStr.setLength(inputStr.length() - 1);
-        } else if (actionId == R.id.button_percent && inputStr.length() > 0) {
-            Double firstArgDouble = Double.parseDouble(inputStr.toString());
-            state = State.resultShow;
-            inputStr.setLength(0);//не забываем очищать поле
+        } else if (actionId == R.id.button_AC) {
+            INPUT_STR.setLength(0);
+            state = State.FIRST_ARG_INPUT;
+        } else if (actionId == R.id.button_C && INPUT_STR.length() > 0) {
+            INPUT_STR.setLength(INPUT_STR.length() - 1);
+        } else if (actionId == R.id.button_percent && INPUT_STR.length() > 0) {
+            Double firstArgDouble = Double.parseDouble(INPUT_STR.toString());
+            state = State.RESULT_SHOW;
+            INPUT_STR.setLength(0);//не забываем очищать поле
             Double secondArgDouble = 100.0;
-            inputStr.append(firstArgDouble / secondArgDouble);
-        } else if (inputStr.length() > 0 && state == State.firstArgInput &&
-                actionId != R.id.button_AC && actionId != R.id.button_C) {
-            firstArg = Integer.parseInt(inputStr.toString());
-            state = State.operationSelected;
+            INPUT_STR.append(firstArgDouble / secondArgDouble);
+        } else if (INPUT_STR.length() > 0 && state == State.FIRST_ARG_INPUT) {
+            firstArg = Integer.parseInt(INPUT_STR.toString());
+            state = State.OPERATION_SELECTED;
             actionSelected = actionId;
         }
     }
 
     public void onNumPressed(int buttonId) {
 
-        if (state == State.resultShow) {
-            state = State.firstArgInput; //если нам показывается результат, то переходим к
+        if (state == State.RESULT_SHOW) {
+            state = State.FIRST_ARG_INPUT; //если нам показывается результат, то переходим к
             // вводу первого аргумента
-            inputStr.setLength(0);
+            INPUT_STR.setLength(0);
         }
 
-        if (state == State.operationSelected) {
-            state = State.secondArgInput;
-            inputStr.setLength(0);
+        if (state == State.OPERATION_SELECTED) {
+            state = State.SECOND_ARG_INPUT;
+            INPUT_STR.setLength(0);
         }
 
-        if (inputStr.length() < 9) {
+        if (INPUT_STR.length() < 9) {
             switch (buttonId) {
                 case R.id.button_zero:
-                    if (inputStr.length() != 0) {
-                        inputStr.append("0");
-                    }
+                    INPUT_STR.append("0");
                     break;
                 case R.id.button_one:
-                    inputStr.append("1");
+                    INPUT_STR.append("1");
                     break;
                 case R.id.button_two:
-                    inputStr.append("2");
+                    INPUT_STR.append("2");
                     break;
                 case R.id.button_three:
-                    inputStr.append("3");
+                    INPUT_STR.append("3");
                     break;
                 case R.id.button_four:
-                    inputStr.append("4");
+                    INPUT_STR.append("4");
                     break;
                 case R.id.button_five:
-                    inputStr.append("5");
+                    INPUT_STR.append("5");
                     break;
                 case R.id.button_six:
-                    inputStr.append("6");
+                    INPUT_STR.append("6");
                     break;
                 case R.id.button_seven:
-                    inputStr.append("7");
+                    INPUT_STR.append("7");
                     break;
                 case R.id.button_eight:
-                    inputStr.append("8");
+                    INPUT_STR.append("8");
                     break;
                 case R.id.button_nine:
-                    inputStr.append("9");
+                    INPUT_STR.append("9");
                     break;
             }
         }
@@ -127,26 +125,26 @@ public class CalculatorModel implements Parcelable {
     public String getText() {
         StringBuilder str = new StringBuilder();
         switch (state) {
-            case operationSelected:
+            case OPERATION_SELECTED:
                 return str.append(firstArg).append(' ')
                         .append(getOperationChar())
                         .toString();
-            case secondArgInput:
+            case SECOND_ARG_INPUT:
                 return str.append(firstArg).append(' ')
                         .append(getOperationChar())
                         .append(' ')
-                        .append(inputStr)
+                        .append(INPUT_STR)
                         .toString();
-            case resultShow:
+            case RESULT_SHOW:
                 return str.append(firstArg).append(' ')
                         .append(getOperationChar())
                         .append(' ')
                         .append(secondArg)
                         .append(" = ")
-                        .append(inputStr.toString())
+                        .append(INPUT_STR.toString())
                         .toString();
             default:
-                return inputStr.toString();
+                return INPUT_STR.toString();
         }
     }
 
@@ -181,10 +179,10 @@ public class CalculatorModel implements Parcelable {
     }
 
     private enum State {
-        firstArgInput,
-        operationSelected,
-        secondArgInput,
-        resultShow,
+        FIRST_ARG_INPUT,
+        OPERATION_SELECTED,
+        SECOND_ARG_INPUT,
+        RESULT_SHOW,
     }
 
 }

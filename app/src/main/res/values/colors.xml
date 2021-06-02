@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_numeral">#000000</color>
     <color name="button_sign">#FF5722</color>
+    <color name="backgroundTint">#5400BCD4</color>
+    <color name="background_tint_equals">#03A9F4</color>
 
 </resources>
