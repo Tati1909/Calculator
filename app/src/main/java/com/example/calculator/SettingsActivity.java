@@ -12,11 +12,11 @@ import com.google.android.material.radiobutton.MaterialRadioButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private static final String NameSharedPreference = "LOGIN";
-    private static final String AppTheme = "Theme_Calculator";
+    private static final String NAME_SHARED_PREFERENCE = "LOGIN";
+    private static final String APP_THEME = "Theme_Calculator";
 
-    private static final int AppThemeLightCodeStyle = 0;
-    private static final int AppThemeDarkCodeStyle = 1;
+    private static final int APP_THEME_LIGHT_CODE_STYLE = 0;
+    private static final int APP_THEME_DARK_CODE_STYLE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void initThemeChooser() {
         initRadioButton(findViewById(R.id.radioButtonMaterialLight),
-                AppThemeLightCodeStyle);
+                APP_THEME_LIGHT_CODE_STYLE);
         initRadioButton(findViewById(R.id.radioButtonMaterialDark),
-                AppThemeDarkCodeStyle);
+                APP_THEME_DARK_CODE_STYLE);
         RadioGroup rg = findViewById(R.id.radioButtons);
-        ((MaterialRadioButton) rg.getChildAt(getCodeStyle(AppThemeLightCodeStyle))).setChecked(true);
+        ((MaterialRadioButton) rg.getChildAt(getCodeStyle(APP_THEME_LIGHT_CODE_STYLE))).setChecked(true);
     }
 
     // Все инициализации кнопок очень похожи, поэтому создадим метод для переиспользования
@@ -65,25 +65,25 @@ public class SettingsActivity extends AppCompatActivity {
     // Чтение настроек, параметр «тема»
     private int getCodeStyle(int codeStyle) {
         // Работаем через специальный класс сохранения и чтения настроек
-        SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
         //Прочитать тему, если настройка не найдена - взять по умолчанию
-        return sharedPref.getInt(AppTheme, codeStyle);
+        return sharedPref.getInt(APP_THEME, codeStyle);
     }
 
     // Сохранение настроек
     private void setAppTheme(int codeStyle) {
-        SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
         // Настройки сохраняются посредством специального класса editor.
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(AppTheme, codeStyle);
+        editor.putInt(APP_THEME, codeStyle);
         editor.apply();
     }
 
     private int codeStyleToStyleId(int codeStyle) {
         switch (codeStyle) {
-            case AppThemeLightCodeStyle:
+            case APP_THEME_LIGHT_CODE_STYLE:
                 return R.style.AppThemeLight;
-            case AppThemeDarkCodeStyle:
+            case APP_THEME_DARK_CODE_STYLE:
                 return R.style.AppThemeDark;
             default:
                 return R.style.my_style_calc_button_numeral;

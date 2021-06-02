@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     CalculatorModel calculator;
 
     private TextView text; //поле для ввода расчетов
-    private static final String keyCalculator = "Calculator";
+    private static final String KEY_CALCULATOR = "Calculator";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,14 +80,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle instanceState) {
         super.onSaveInstanceState(instanceState);
-        instanceState.putParcelable(keyCalculator, calculator);
+        instanceState.putParcelable(KEY_CALCULATOR, calculator);
     }
 
     //восстановление данных
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
         super.onRestoreInstanceState(instanceState);
-        calculator = (CalculatorModel) instanceState.getParcelable(keyCalculator);
+        calculator = (CalculatorModel) instanceState.getParcelable(KEY_CALCULATOR);
         text.setText(calculator.getText());
     }
 
