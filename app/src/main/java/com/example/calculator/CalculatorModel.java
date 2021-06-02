@@ -54,8 +54,9 @@ public class CalculatorModel implements Parcelable {
                     INPUT_STR.append(firstArg / secondArg);
                     break;
             }
-        } else if (actionId == R.id.button_AC && INPUT_STR.length() > 0) {
+        } else if (actionId == R.id.button_AC) {
             INPUT_STR.setLength(0);
+            state = State.FIRST_ARG_INPUT;
         } else if (actionId == R.id.button_C && INPUT_STR.length() > 0) {
             INPUT_STR.setLength(INPUT_STR.length() - 1);
         } else if (actionId == R.id.button_percent && INPUT_STR.length() > 0) {
@@ -64,8 +65,7 @@ public class CalculatorModel implements Parcelable {
             INPUT_STR.setLength(0);//не забываем очищать поле
             Double secondArgDouble = 100.0;
             INPUT_STR.append(firstArgDouble / secondArgDouble);
-        } else if (INPUT_STR.length() > 0 && state == State.FIRST_ARG_INPUT &&
-                actionId != R.id.button_AC && actionId != R.id.button_C) {
+        } else if (INPUT_STR.length() > 0 && state == State.FIRST_ARG_INPUT) {
             firstArg = Integer.parseInt(INPUT_STR.toString());
             state = State.OPERATION_SELECTED;
             actionSelected = actionId;
@@ -88,9 +88,7 @@ public class CalculatorModel implements Parcelable {
         if (INPUT_STR.length() < 9) {
             switch (buttonId) {
                 case R.id.button_zero:
-                    if (INPUT_STR.length() != 0) {
-                        INPUT_STR.append("0");
-                    }
+                    INPUT_STR.append("0");
                     break;
                 case R.id.button_one:
                     INPUT_STR.append("1");
