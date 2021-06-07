@@ -156,7 +156,7 @@
                 android:id="@+id/button_choice_of_theme"
                 style="@style/my_style_calc_button_numeral"
                 android:text="@string/theme"
-                android:textSize="@dimen/textSizeTheme" />
+                android:textSize="@dimen/text_size_theme" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_zero"
